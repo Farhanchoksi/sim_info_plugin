@@ -1,6 +1,6 @@
 name: sim_info_plugin
 description: "A Flutter plugin to retrieve SIM card information including phone number and carrier name on Android."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Farhanchoksi/sim_info_plugin
 repository: https://github.com/Farhanchoksi/sim_info_plugin.git
 
@@ -36,9 +36,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.emona.sim_info_plugin
-        pluginClass: SimInfoPlugin
-      ios:
+        package: com.choksiinfotech.sim_info_plugin
         pluginClass: SimInfoPlugin
 
   # To add assets to your plugin package, add an assets section, like this:

@@ -1,4 +1,4 @@
-group = "com.emona.sim_info_plugin"
+group = "com.choksiinfotech.sim_info_plugin"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -25,7 +25,7 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
 android {
-    namespace = "com.emona.sim_info_plugin"
+    namespace = "com.choksiinfotech.sim_info_plugin"
 
     compileSdk = 36
 

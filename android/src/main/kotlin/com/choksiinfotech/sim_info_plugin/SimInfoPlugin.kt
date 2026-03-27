@@ -1,4 +1,4 @@
-package com.emona.sim_info_plugin
+package com.choksiinfotech.sim_info_plugin
 
 import android.content.Context
 import android.os.Build
