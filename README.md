@@ -2,6 +2,12 @@
 
 A Flutter plugin to retrieve SIM card information, such as phone number, carrier name, and slot index, primarily for Android.
 
+## The Problem It Solves
+
+Many existing SIM information plugins have a common issue: **they only detect one SIM card on dual-SIM devices**. 
+
+This plugin provides the solution by correctly detecting and fetching information for **both SIM cards** on dual-SIM mobile phones.
+
 ## Features
 
 - Get active SIM cards on the device.
@@ -43,4 +49,6 @@ Future<void> getSimCards() async {
   }
 }
 ```
+## Maintainer
 
+Maintained by **Farhan Choksi**.
