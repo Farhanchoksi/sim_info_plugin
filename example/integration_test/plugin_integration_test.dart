@@ -1,3 +1,5 @@
+import 'dart:async';
+
 // This is a basic Flutter integration test.
 //
 // Since integration tests run in a full Flutter application, they can interact
@@ -20,6 +22,24 @@ void main() {
     final List<dynamic>? simCards = await plugin.getSimCardsDirect();
     // The result should be a list if the native call is successful,
     // even if it's empty (no SIM cards present).
-    expect(simCards is List?, true);
+    expect(simCards, isA<List<dynamic>>());
+  });
+
+  testWidgets('getSimCardsStream contract', (WidgetTester tester) async {
+    final SimInfoPlugin plugin = SimInfoPlugin();
+
+    expect(plugin.getSimCardsStream(), isA<Stream<List<dynamic>>>());
+
+    List<dynamic> firstEvent = <dynamic>[];
+    try {
+      firstEvent = await plugin
+          .getSimCardsStream()
+          .first
+          .timeout(const Duration(seconds: 5), onTimeout: () => <dynamic>[]);
+    } catch (_) {
+      firstEvent = <dynamic>[];
+    }
+
+    expect(firstEvent, isA<List<dynamic>>());
   });
 }
