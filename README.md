@@ -13,6 +13,7 @@ This plugin provides the solution by correctly detecting and fetching informatio
 - Get active SIM cards on the device.
 - Retrieve phone number, carrier name, slot index, and subscription ID.
 - Handle Android 13+ (API 33+) phone number retrieval restrictions.
+- Listen for live SIM state changes and receive refreshed SIM data.
 
 ## Installation
 
@@ -49,6 +50,29 @@ Future<void> getSimCards() async {
   }
 }
 ```
+
+### Listen for SIM changes in real time
+
+```dart
+import 'dart:async';
+import 'package:sim_info_plugin/sim_info_plugin.dart';
+
+final simInfoPlugin = SimInfoPlugin();
+StreamSubscription<List<dynamic>>? simSubscription;
+
+void startListening() {
+  simSubscription = simInfoPlugin.getSimCardsStream().listen((simCards) {
+    // Called when SIM tray/SIM state changes are detected on Android.
+    print('Updated SIM list: $simCards');
+  });
+}
+
+void stopListening() {
+  simSubscription?.cancel();
+}
+```
+
+The stream currently provides live updates on Android.
 ## Maintainer
 
 Maintained by **Farhan Choksi**.

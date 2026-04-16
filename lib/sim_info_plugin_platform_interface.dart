@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'sim_info_plugin_method_channel.dart';
@@ -25,5 +27,9 @@ abstract class SimInfoPluginPlatform extends PlatformInterface {
 
   Future<List<dynamic>?> getSimCardsDirect() {
     throw UnimplementedError('getSimCardsDirect() has not been implemented.');
+  }
+
+  Stream<List<dynamic>> getSimCardsStream() {
+    throw UnimplementedError('getSimCardsStream() has not been implemented.');
   }
 }
